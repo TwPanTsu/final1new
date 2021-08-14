@@ -58,39 +58,24 @@ class GroupActivity : AppCompatActivity() {
         creategroup_btn.setOnClickListener{
 
             val userid = FirebaseAuth.getInstance().uid
-            var chatkey = database.child("Chats").push().key
             //從資料庫獲得username
-            database.child("Users").child(userid!!).child("userName").addValueEventListener(object: ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    // This method is called once with the initial value and again
-                    // whenever data at this location is updated.
-                    val username = snapshot.getValue<String>()
-                    // 資料庫Chats下增加成員
-                    database.child("Chats").child(chatkey!!).child("Useruid").child(userid.toString()).setValue(username)
-                    // Chats給予預設名稱
-                    database.child("Chats").child(chatkey).child("GroupName").setValue("未命名聊天室")
+            database.child("Users").child(userid!!).child("userName").get().addOnSuccessListener {
+
+                var chatkey = database.child("Chats").push().key
+                val username = it.getValue<String>()
+                // 資料庫Chats下增加成員
+                database.child("Chats").child(chatkey!!).child("Useruid").child(userid.toString()).setValue(username)
+                // Chats給予預設名稱
+                database.child("Chats").child(chatkey).child("GroupName").setValue("未命名聊天室")
+                //Users底下增加group的key
+                database.child("Users").child(userid!!).child("Groups").child(chatkey!!).setValue("True").addOnSuccessListener {
+                    toast("create group successful")
                 }
-                override fun onCancelled(error: DatabaseError) {
-                }
-            })
-            //Users底下增加group的key
-            database.child("Users").child(userid!!).child("Groups").child(chatkey!!).setValue("True").addOnSuccessListener {
-                toast("create group successful")
             }
         }
 
         joingroup_btn.setOnClickListener{
             val intent = Intent(this, GroupJoinActivity::class.java)
-            startActivity(intent)
-        }
-
-        setting_btn.setOnClickListener{
-            val intent = Intent(this, Setting_and_Privacy::class.java)
-            startActivity(intent)
-        }
-
-        setting_btn.setOnClickListener{
-            val intent = Intent(this, Setting_and_Privacy::class.java)
             startActivity(intent)
         }
 

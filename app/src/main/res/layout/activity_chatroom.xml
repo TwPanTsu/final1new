@@ -113,16 +113,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!-- 按鈕：聊天室 -->
-        <Button
-            android:id="@+id/chatroom_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="#00000000"
-            android:textColor="@color/black"
-            android:text="聊天室" />
-
         <!-- 按鈕：地圖 -->
         <Button
             android:id="@+id/map_btn"
@@ -132,6 +122,16 @@
             android:backgroundTint="#00000000"
             android:textColor="@color/black"
             android:text="地圖" />
+
+        <!-- 按鈕：聊天室 -->
+        <Button
+            android:id="@+id/chatroom_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="#00000000"
+            android:textColor="@color/black"
+            android:text="聊天室" />
 
         <!-- 按鈕：群組資訊 -->
         <Button

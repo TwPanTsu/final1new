@@ -135,37 +135,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-            <!-- 按鈕：聊天室 -->
-            <Button
-                android:id="@+id/chatroom_btn_grpinf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="聊天室" />
 
-            <!-- 按鈕：地圖 -->
-            <Button
-                android:id="@+id/map_btn_groupinf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="地圖" />
+        <!-- 按鈕：地圖 -->
+        <Button
+            android:id="@+id/map_btn_groupinf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="地圖" />
 
-            <!-- 按鈕：群組資訊 -->
-            <Button
-                android:id="@+id/button11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="群組資訊" />
+        <!-- 按鈕：聊天室 -->
+        <Button
+            android:id="@+id/chatroom_btn_grpinf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="聊天室" />
 
-            <!-- 按鈕：行程 -->
-            <Button
-                android:id="@+id/button12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="行程" />
+        <!-- 按鈕：群組資訊 -->
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="群組資訊" />
+
+        <!-- 按鈕：行程 -->
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="行程" />
 
     </LinearLayout>
 

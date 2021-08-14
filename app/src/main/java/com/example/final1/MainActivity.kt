@@ -8,21 +8,30 @@ import android.widget.Button
 import android.widget.EditText
 import com.example.final1.Extensions.toast
 import com.example.final1.FirebaseUtils.firebaseAuth
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var signInEmail: String
     lateinit var signInPassword: String
     lateinit var signInInputsArray: Array<EditText>
+    lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val login_btn : Button = findViewById(R.id.login_btn)
         val regisbtn : Button = findViewById(R.id.register_btn)
-        //val text :TextView = findViewById(R.id.textView)
 
         signInInputsArray = arrayOf(account_id_login, password_login)
+
+        val uid = FirebaseAuth.getInstance().uid
+        if (uid != null) {
+            startActivity(Intent(this, GroupInformationActivity::class.java))
+            finish()
+        }
 
         regisbtn.setOnClickListener{
             val intent = Intent(this@MainActivity, RegisterActivity::class.java)
@@ -33,8 +42,6 @@ class MainActivity : AppCompatActivity() {
         Log.d("test", "This is Verbosdtfyntre.")
         login_btn.setOnClickListener {
             signInUser()
-            val intent = Intent(this,MapsActivity::class.java)
-            startActivity(intent)
         }
     }
     private fun notEmpty(): Boolean = signInEmail.isNotEmpty() && signInPassword.isNotEmpty()
@@ -47,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             firebaseAuth.signInWithEmailAndPassword(signInEmail, signInPassword)
                 .addOnCompleteListener { signIn ->
                     if (signIn.isSuccessful) {
-                        startActivity(Intent(this, HomeActivity::class.java))
+                        startActivity(Intent(this, GroupInformationActivity::class.java))
                         toast("signed in successfully")
                         finish()
                     } else {

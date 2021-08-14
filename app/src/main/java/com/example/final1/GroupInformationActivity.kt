@@ -8,6 +8,7 @@ import com.google.firebase.database.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
+import kotlinx.android.synthetic.main.activity_chatroom.*
 import kotlinx.android.synthetic.main.activity_group_information.*
 import kotlinx.android.synthetic.main.member.view.*
 
@@ -70,6 +71,11 @@ class GroupInformationActivity : AppCompatActivity() {
 
         chatroom_btn_grpinf.setOnClickListener{
             val intent = Intent(this, ChatroomActivity::class.java)
+            startActivity(intent)
+        }
+
+        map_btn_groupinf.setOnClickListener{
+            val intent = Intent(this, MapsActivity::class.java)
             startActivity(intent)
         }
 

@@ -96,7 +96,7 @@ class RegisterActivity : AppCompatActivity() {
                         }
                         toast("created account successfully !")
                         sendEmailVerification()
-                        startActivity(Intent(this, HomeActivity::class.java))
+                        startActivity(Intent(this, GroupJoinActivity::class.java))
                         finish()
                     } else {
                         toast("failed to Authenticate !")
