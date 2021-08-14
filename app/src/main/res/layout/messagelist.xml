@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/message_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="68dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/userLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_avatar_user"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:src="@mipmap/iconfinder_man_196742" />
+
+            <TextView
+                android:id="@+id/txv_msg_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/img_avatar_user"
+                android:background="@mipmap/bubble_user"
+                android:gravity="left"
+                android:paddingStart="23dp"
+                android:paddingTop="14dp"
+                android:paddingEnd="33dp"
+                android:paddingBottom="14dp"
+                android:layout_marginRight="6dp"
+                android:text="message"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"/>
+
+            <ImageView
+                android:id="@+id/imgmsg_user"
+                android:layout_width="90dp"
+                android:layout_height="120dp"
+                android:scaleType="fitCenter"
+                android:layout_toLeftOf="@id/img_avatar_user"
+                android:layout_marginRight="6dp"
+                android:visibility="gone"
+                />
+
+
+            <TextView
+                android:id="@+id/txv_time_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="6dp"
+                android:layout_alignBottom="@id/txv_msg_user"
+                android:layout_toLeftOf="@id/txv_msg_user"/>
+
+            <TextView
+                android:id="@+id/txv_time_imgUSer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="6dp"
+                android:layout_alignBottom="@id/imgmsg_user"
+                android:layout_toLeftOf="@id/imgmsg_user"
+                />
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

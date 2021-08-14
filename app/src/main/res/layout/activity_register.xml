@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/cloud_background"
+    app:layout_constraintCircleRadius="20dip"
+    tools:context=".RegisterActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="88dp"
+        android:text="註冊"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/account_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/account_name"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:background="#51292929"
+        android:ems="10"
+        android:hint="姓名/暱稱"
+        android:inputType="textPersonName"
+        android:paddingLeft="6dp"
+        android:text="@string/acc"
+        android:textColorHint="#BFFFFFFF"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/account_id"
+        app:layout_constraintStart_toStartOf="@+id/account_id"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.311" />
+
+    <EditText
+        android:id="@+id/account_id"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="111dp"
+        android:background="#51292929"
+        android:ems="10"
+        android:hint="帳號"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="6dp"
+        android:text="@string/acc"
+        android:textColorHint="#BFFFFFFF"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_name" />
+
+    <EditText
+        android:id="@+id/passwords"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="#51292929"
+        android:ems="10"
+        android:hint="密碼 (需含有英文與數字共8位以上)"
+        android:inputType="textPassword"
+        android:paddingLeft="6dp"
+        android:text="@string/acc"
+        android:textColorHint="#BFFFFFFF"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="@+id/account_id"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/account_id"
+        app:layout_constraintTop_toBottomOf="@+id/account_id" />
+
+    <EditText
+        android:id="@+id/passwords_check"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="12dp"
+        android:background="#51292929"
+        android:ems="10"
+        android:hint="再次確認密碼"
+        android:inputType="textPersonName"
+        android:paddingLeft="6dp"
+        android:text="@string/acc"
+        android:textColorHint="#BFFFFFFF"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="@+id/passwords"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/passwords"
+        app:layout_constraintTop_toBottomOf="@+id/passwords" />
+
+    <EditText
+        android:id="@+id/phone_num"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:background="#51292929"
+        android:ems="10"
+        android:hint="手機"
+        android:inputType="phone|number"
+        android:paddingLeft="6dp"
+        android:text="@string/pass"
+        android:textColorHint="#BFFFFFFF"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/passwords_check"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/passwords_check"
+        app:layout_constraintTop_toBottomOf="@+id/passwords_check"
+        app:layout_constraintVertical_bias="0.042" />
+
+    <Button
+        android:id="@+id/button_confirm_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="確定"
+        android:textColor="#C3000000"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/phone_num"
+        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintStart_toStartOf="@+id/phone_num"
+        app:layout_constraintTop_toBottomOf="@+id/phone_num" />
+
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:backgroundTint="#D6D6D6"
+        android:text="取消"
+        android:textColor="#C1000000"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_confirm_register"
+        app:layout_constraintStart_toEndOf="@+id/button_confirm_register"
+        app:layout_constraintTop_toTopOf="@+id/button_confirm_register"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_to_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/back_button"
+        android:text="返回"
+        android:textColor="@color/back_button_text"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

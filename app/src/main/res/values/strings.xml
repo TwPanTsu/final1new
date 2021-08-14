@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Chital趣遊</string>
+    <string name="pass" />
+    <string name="acc" />
+    <string name="textview">歡迎使用</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="my_name">My name</string>
+    <string name="title_activity_main2">MainActivity</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- setting Titles -->
+    <string name="setting_header">設定</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="version_title">版本:</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="setpri_title">設定和隱私</string>
+    <string name="to_setting_btn">設定</string>
+    <string name="to_change_account_btn">修改個人資料</string>
+    <string name="to_privacy_btn">隱私</string>
+    <string name="friend_setting_title">好友與群組</string>
+    <string name="to_friend_list_btn">好友列表</string>
+    <string name="to_add_friend_btn">邀請好友</string>
+    <string name="to_schedule_setting_btn">行程設定</string>
+    <string name="to_group_btn">群組設定</string>
+    <string name="other_setting_title">其他</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="mylocationinfo">我的位置在:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
