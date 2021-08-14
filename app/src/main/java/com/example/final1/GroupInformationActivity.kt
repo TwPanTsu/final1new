@@ -79,6 +79,12 @@ class GroupInformationActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        gotoQR_btn.setOnClickListener {
+            var intent =Intent(this, QRcodeActivity::class.java)
+            intent.putExtra("current_group",current_group)
+            startActivity(intent)
+        }
+
 
     }
 }

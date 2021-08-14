@@ -103,7 +103,7 @@
 
                 <!-- 按鈕：顯示QR-Code -->
                 <Button
-                    android:id="@+id/button6"
+                    android:id="@+id/gotoQR_btn"
                     android:layout_width="64dp"
                     android:layout_height="37dp"
                     android:layout_marginStart="10dp"

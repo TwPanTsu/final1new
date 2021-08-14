@@ -5,18 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/QRcode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="167dp"
-        android:layout_marginTop="317dp"
-        android:layout_marginEnd="167dp"
-        android:text="QRcode掃描"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/groupid_input"
         android:layout_width="0dp"
@@ -41,4 +29,15 @@
         android:text="確認"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="350dp"
+        android:layout_height="344dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.222" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
