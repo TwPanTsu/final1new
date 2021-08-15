@@ -27,6 +27,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 import kotlinx.android.synthetic.main.activity_group_information.*
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 
 class MapsActivity : FragmentActivity(), OnMapReadyCallback ,LocationListener ,LocationSource{
@@ -97,6 +101,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback ,LocationListener ,L
 
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onLocationChanged(location: Location) {
         mLocationChangedListener.onLocationChanged(location)//抓之前的位置
         mMap.animateCamera(CameraUpdateFactory.newLatLng(LatLng(location.latitude,location.longitude)))//可能要改!!!移動鏡頭到新位置
@@ -121,8 +126,10 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback ,LocationListener ,L
             }
             else {
                 if (userid != null) {
+                    //val time=SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
                     database.child("Chats").child(current_group).child("Useruid").child(userid).child("la").setValue(la)
                     database.child("Chats").child(current_group).child("Useruid").child(userid).child("lo").setValue(lo)
+                    //database.child("Chats").child(current_group).child("Useruid").child(userid).child("time").setValue(time)
                 }
             }
         }.addOnFailureListener {
@@ -239,11 +246,8 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback ,LocationListener ,L
 
 
     }
-
-
-
 }
 
 data class positionlalo(val la: Double, val lo: Double) {
-constructor() : this   (-1.0,-1.0)
+
 }

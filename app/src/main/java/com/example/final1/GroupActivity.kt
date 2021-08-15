@@ -3,6 +3,8 @@ package com.example.final1
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.final1.Extensions.toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -48,6 +50,8 @@ class GroupActivity : AppCompatActivity() {
         adapter.setOnItemClickListener { item, view ->
             val positionofitem = adapter.getAdapterPosition(item)
             database.child("Users").child(userid.toString()).child("currentGroup").setValue(grpkeylist[positionofitem])
+            val intent = Intent(this, GroupInformationActivity::class.java)
+            startActivity(intent)
         }
 
         returnGroupInf_btn.setOnClickListener{
@@ -56,22 +60,8 @@ class GroupActivity : AppCompatActivity() {
         }
 
         creategroup_btn.setOnClickListener{
-
-            val userid = FirebaseAuth.getInstance().uid
-            //從資料庫獲得username
-            database.child("Users").child(userid!!).child("userName").get().addOnSuccessListener {
-
-                var chatkey = database.child("Chats").push().key
-                val username = it.getValue<String>()
-                // 資料庫Chats下增加成員
-                database.child("Chats").child(chatkey!!).child("Useruid").child(userid.toString()).setValue(username)
-                // Chats給予預設名稱
-                database.child("Chats").child(chatkey).child("GroupName").setValue("未命名聊天室")
-                //Users底下增加group的key
-                database.child("Users").child(userid!!).child("Groups").child(chatkey!!).setValue("True").addOnSuccessListener {
-                    toast("create group successful")
-                }
-            }
+            var dialog=CreateGroupDialogFragment()
+            dialog.show(supportFragmentManager,"creategroup")
         }
 
         joingroup_btn.setOnClickListener{
