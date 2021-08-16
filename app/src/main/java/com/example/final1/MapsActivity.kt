@@ -3,23 +3,23 @@ package com.example.final1
 import android.Manifest
 import android.location.Location
 import android.annotation.SuppressLint
-import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import android.location.LocationListener
 import android.location.LocationManager
+import android.os.Build
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.NonNull
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.SupportMapFragment
@@ -28,7 +28,9 @@ import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 import kotlinx.android.synthetic.main.activity_group_information.*
 import java.text.SimpleDateFormat
+import java.time.Duration
 import java.time.LocalDateTime
+import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
@@ -76,6 +78,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback ,LocationListener ,L
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         mMap.isMyLocationEnabled=true
@@ -101,6 +104,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback ,LocationListener ,L
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("SimpleDateFormat")
     override fun onLocationChanged(location: Location) {
         mLocationChangedListener.onLocationChanged(location)//抓之前的位置
@@ -126,10 +130,10 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback ,LocationListener ,L
             }
             else {
                 if (userid != null) {
-                    //val time=SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
+                    val time= LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"))
                     database.child("Chats").child(current_group).child("Useruid").child(userid).child("la").setValue(la)
                     database.child("Chats").child(current_group).child("Useruid").child(userid).child("lo").setValue(lo)
-                    //database.child("Chats").child(current_group).child("Useruid").child(userid).child("time").setValue(time)
+                    database.child("Chats").child(current_group).child("Useruid").child(userid).child("time").setValue(time)
                 }
             }
         }.addOnFailureListener {
@@ -161,7 +165,16 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback ,LocationListener ,L
                                 database.child("Chats").child(current_group).child("Useruid").child(useruid).get().addOnSuccessListener { datasnapshot ->
                                     var positionlalo = datasnapshot.getValue<positionlalo>()
                                     if (positionlalo != null) {
-                                        mMap.addMarker(MarkerOptions().position(LatLng(positionlalo.la, positionlalo.lo)).title(useruid))
+                                        database.child("Users").child(useruid).child("userName").get().addOnSuccessListener{
+                                            var name=it.value.toString()
+                                            var last_time=positionlalo.time
+                                            var last_time_localdate:LocalDateTime= LocalDateTime.parse(last_time,
+                                                DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"))
+                                            var duration=Duration.between(last_time_localdate,LocalDateTime.now()).toMinutes()
+                                            mMap.addMarker(MarkerOptions().position(LatLng(positionlalo.la, positionlalo.lo)).title(name+"("+duration+"分鐘前)"))
+                                            Log.v("test",name+duration)//測試用log
+                                        }
+
                                     }
                                 }
                             }
@@ -248,6 +261,8 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback ,LocationListener ,L
     }
 }
 
-data class positionlalo(val la: Double, val lo: Double) {
+data class positionlalo(val la: Double, val lo: Double,val time:String) {
+
+    constructor() : this   (-1.0,-1.0,"2021/08/16 00:06:53.268")
 
 }
