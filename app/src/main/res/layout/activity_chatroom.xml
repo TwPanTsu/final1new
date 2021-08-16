@@ -30,6 +30,8 @@
                 android:layout_width="45dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:backgroundTint="#00000000"
+                android:textColor="@color/black"
                 android:text="首頁" />
             <!-- 標題：聊天室 -->
 
@@ -85,6 +87,7 @@
         <!-- 輸入框：輸入訊息 -->
 
         <!-- 按鈕：送出訊息 -->
+
         <EditText
             android:id="@+id/et_message"
             android:layout_width="0dp"
@@ -119,7 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="#00000000"
+            android:backgroundTint="@color/white"
             android:textColor="@color/black"
             android:text="地圖" />
 
@@ -129,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="#00000000"
+            android:backgroundTint="@color/white"
             android:textColor="@color/black"
             android:text="聊天室" />
 
@@ -139,7 +142,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="#00000000"
+            android:backgroundTint="@color/white"
             android:textColor="@color/black"
             android:text="群組資訊" />
 
@@ -149,7 +152,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="#00000000"
+            android:backgroundTint="@color/white"
             android:textColor="@color/black"
             android:text="行程" />
 

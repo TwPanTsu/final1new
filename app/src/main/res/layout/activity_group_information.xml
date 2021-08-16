@@ -10,7 +10,7 @@
         android:id="@+id/LinearLayout_head"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="@android:color/holo_purple"
+        android:background="@color/Green7"
         android:gravity="top"
         android:orientation="horizontal">
         <!-- 按鈕：回到home -->
@@ -21,6 +21,10 @@
             android:layout_weight="1"
             android:text="首頁"
             tools:ignore="TouchTargetSizeCheck" />
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:text="首頁" />
+
         <!-- 標題：群組資訊、成員 -->
 
 
@@ -41,6 +45,9 @@
             android:layout_weight="1"
             android:text="切換群組"
             tools:ignore="TouchTargetSizeCheck" />
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:text="切換群組" />
     </LinearLayout>
 
 
@@ -49,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/LinearLayout_head"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/Green4"
         android:orientation="vertical">
 
         <LinearLayout
@@ -108,6 +115,9 @@
                 android:layout_toRightOf="@id/textView3"
                 android:text="顯示"
                 tools:ignore="TouchTargetSizeCheck" />
+                android:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:text="顯示" />
         </LinearLayout>
 
         <!-- 文字：群組成員 -->
@@ -144,7 +154,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="#00000000"
+            android:backgroundTint="@color/white"
             android:textColor="@color/black"
             android:text="地圖" />
 
@@ -154,7 +164,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="#00000000"
+            android:backgroundTint="@color/white"
             android:textColor="@color/black"
             android:text="聊天室" />
 
@@ -163,9 +173,9 @@
             android:id="@+id/button11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#00000000"
-            android:textColor="@color/black"
             android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             android:text="群組資訊" />
 
         <!-- 按鈕：行程 -->
@@ -173,9 +183,9 @@
             android:id="@+id/button12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#00000000"
-            android:textColor="@color/black"
             android:layout_weight="1"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
             android:text="行程" />
 
     </LinearLayout>

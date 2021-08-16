@@ -26,6 +26,7 @@ class GroupInformationActivity : AppCompatActivity() {
 
         var userkeyingrouplist:MutableList<String> = mutableListOf()
         database.child("Users").child(userid.toString()).child("currentGroup").get().addOnSuccessListener {
+            adapter.clear()
             current_group = it.value as String
             if (current_group == "not_have_yet") {
                 val intent = Intent(this, GroupActivity::class.java)

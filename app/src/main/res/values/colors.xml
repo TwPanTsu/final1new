@@ -8,6 +8,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bgblue">#90C1EF</color>
+    <color name="Green1">#72BBB3</color>
+    <color name="Green2">#A7D2CC</color>
+    <color name="Green3">#E0EAEB</color>
+    <color name="Green4">#B0D9E3</color>
+    <color name="Green5">#9DBEBA</color>
+    <color name="Green6">#60BEA3</color>
+    <color name="Green7">#93CDB5</color>
+    <color name="Green8">#D8E3D3</color>
+
 
     <color name="btn_focused">#F46F65</color>
     <color name="btn_normal">#00ff00</color>
