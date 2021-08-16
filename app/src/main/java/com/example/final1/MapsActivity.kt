@@ -171,8 +171,10 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback ,LocationListener ,L
                                             var last_time_localdate:LocalDateTime= LocalDateTime.parse(last_time,
                                                 DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"))
                                             var duration=Duration.between(last_time_localdate,LocalDateTime.now()).toMinutes()
-                                            mMap.addMarker(MarkerOptions().position(LatLng(positionlalo.la, positionlalo.lo)).title(name+"("+duration+"分鐘前)"))
-                                            Log.v("test",name+duration)//測試用log
+                                            if(useruid!=userid){
+                                                mMap.addMarker(MarkerOptions().position(LatLng(positionlalo.la, positionlalo.lo)).title(name+"("+duration+"分鐘前)"))
+                                            }
+                                            Log.v("test",useruid+"----------"+userid)//測試用log
                                         }
 
                                     }
