@@ -192,7 +192,6 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback ,LocationListener ,L
             val intent = Intent(this, GroupActivity::class.java)
             startActivity(intent)
         }
-
     }
 
 
@@ -241,7 +240,6 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback ,LocationListener ,L
                 ActivityCompat.requestPermissions(this@MapsActivity, arrayOf(
                     android.Manifest.permission.ACCESS_FINE_LOCATION
                     ),REQUEST_PERMISSION_FOR_ACCESS_FINE_LOCATION)
-
             }
         }
 
@@ -260,13 +258,8 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback ,LocationListener ,L
             mLocationMgr.removeUpdates(this)
             Toast.makeText(this@MapsActivity,"定位已經停用了",Toast.LENGTH_LONG).show()
         }
-
-
     }
 }
-
 data class positionlalo(val la: Double, val lo: Double,val time:String) {
-
     constructor() : this   (-1.0,-1.0,"2021/08/16 00:06:53.268")
-
 }
