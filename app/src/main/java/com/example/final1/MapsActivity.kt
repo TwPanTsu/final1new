@@ -1,36 +1,34 @@
 package com.example.final1
 
 import android.Manifest
-import android.location.Location
 import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Bundle
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
+import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Build
+import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.NonNull
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import com.google.android.gms.maps.*
-import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 import kotlinx.android.synthetic.main.activity_group_information.*
-import java.text.SimpleDateFormat
 import java.time.Duration
 import java.time.LocalDateTime
-import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
@@ -167,16 +165,20 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback ,LocationListener ,L
                                     if (positionlalo != null) {
                                         database.child("Users").child(useruid).child("userName").get().addOnSuccessListener{
                                             var name=it.value.toString()
-                                            var last_time=positionlalo.time
-                                            var last_time_localdate:LocalDateTime= LocalDateTime.parse(last_time,
+                                            var last_time_string=positionlalo.time
+                                            var last_time_localdate:LocalDateTime= LocalDateTime.parse(last_time_string,
                                                 DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"))
                                             var duration=Duration.between(last_time_localdate,LocalDateTime.now()).toMinutes()
+                                            var timestring="("+duration+"分鐘前)"
+                                            if(duration>60){
+                                                timestring="(1小時以上)"
+                                            }
                                             if(useruid!=userid){
-                                                mMap.addMarker(MarkerOptions().position(LatLng(positionlalo.la, positionlalo.lo)).title(name+"("+duration+"分鐘前)"))
+                                                mMap.addMarker(MarkerOptions().position(LatLng(positionlalo.la, positionlalo.lo)).title(name+timestring).
+                                                icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE)))
                                             }
                                             Log.v("test",useruid+"----------"+userid)//測試用log
                                         }
-
                                     }
                                 }
                             }
@@ -191,8 +193,8 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback ,LocationListener ,L
             startActivity(intent)
         }
 
-
     }
+
 
     override fun activate(p0: LocationSource.OnLocationChangedListener) {
         mLocationChangedListener = p0
