@@ -44,10 +44,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="切換群組"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"
             android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:text="切換群組" />
+            android:textColor="@color/black" />
     </LinearLayout>
 
 

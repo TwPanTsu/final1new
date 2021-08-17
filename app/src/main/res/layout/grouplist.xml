@@ -16,6 +16,8 @@
         android:gravity=""
         android:orientation="horizontal"
         android:text="Text"
+        android:textColor="@color/black"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/grouppic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/grouppic"
