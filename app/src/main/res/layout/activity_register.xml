@@ -13,7 +13,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="88dp"
         android:text="註冊"
         android:textColor="@color/black"
@@ -27,8 +27,10 @@
 
     <EditText
         android:id="@+id/account_name"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:background="@drawable/rounded_edttext_register"
         android:ems="10"
         android:hint="姓名/暱稱"
@@ -46,11 +48,11 @@
 
     <EditText
         android:id="@+id/account_id"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginStart="111dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="111dp"
+        android:layout_marginEnd="40dp"
         android:background="@drawable/rounded_edttext_register"
         android:ems="10"
         android:hint="帳號"
@@ -66,9 +68,11 @@
 
     <EditText
         android:id="@+id/passwords"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="40dp"
         android:background="@drawable/rounded_edttext_register"
         android:ems="10"
         android:hint="密碼 (需含有英文與數字共8位以上)"
@@ -84,9 +88,11 @@
 
     <EditText
         android:id="@+id/passwords_check"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="40dp"
         android:background="@drawable/rounded_edttext_register"
         android:ems="10"
         android:hint="再次確認密碼"
@@ -102,8 +108,10 @@
 
     <EditText
         android:id="@+id/phone_num"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:background="@drawable/rounded_edttext_register"
         android:ems="10"
         android:hint="手機"
@@ -123,14 +131,13 @@
         android:id="@+id/button_confirm_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="36dp"
         android:backgroundTint="#FFFFFF"
         android:text="確定"
         android:textColor="#C3000000"
         android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="@+id/phone_num"
-        app:layout_constraintHorizontal_bias="0.274"
-        app:layout_constraintStart_toStartOf="@+id/phone_num"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phone_num" />
 
     <Button
@@ -138,11 +145,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginEnd="88dp"
         android:backgroundTint="#D6D6D6"
         android:text="取消"
         android:textColor="#C1000000"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/button_confirm_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/button_confirm_register"
         app:layout_constraintTop_toTopOf="@+id/button_confirm_register"
         app:layout_constraintVertical_bias="0.0" />
@@ -169,5 +179,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/select_photo_rgs_imgview"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        app:civ_border_width="4dp"
+        app:civ_border_color="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/select_photo_rgs"
+        app:layout_constraintEnd_toEndOf="@+id/select_photo_rgs"
+        app:layout_constraintStart_toStartOf="@+id/select_photo_rgs"
+        app:layout_constraintTop_toTopOf="@+id/select_photo_rgs" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
