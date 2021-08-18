@@ -149,12 +149,12 @@
 
     <Button
         android:id="@+id/button_to_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="45dp"
         android:backgroundTint="@color/back_button"
         android:text="返回"
         android:textColor="@color/back_button_text"
-        android:textSize="25sp"
+        android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
