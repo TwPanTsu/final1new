@@ -16,17 +16,19 @@
         android:text="Text"
         android:textColor="@color/black"
         android:textSize="20dp"
+        android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="@+id/userpic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/userpic"
         app:layout_constraintTop_toTopOf="@+id/userpic" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/userpic"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        app:civ_border_width="1dp"
+        app:civ_border_color="@color/Green6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
