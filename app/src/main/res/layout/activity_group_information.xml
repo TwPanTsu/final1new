@@ -116,9 +116,7 @@
                 android:backgroundTint="#36BF36"
                 android:text="顯示"
                 tools:ignore="TouchTargetSizeCheck" />
-            android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:text="顯示" />
+
         </LinearLayout>
 
         <!-- 文字：群組成員 -->

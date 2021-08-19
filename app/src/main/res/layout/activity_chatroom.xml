@@ -11,8 +11,6 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-
-
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/layout_input"
         app:layout_constraintEnd_toEndOf="parent"
