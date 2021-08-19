@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
+import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 import kotlinx.android.synthetic.main.activity_chatroom.*
 import kotlinx.android.synthetic.main.activity_group_information.*
 import kotlinx.android.synthetic.main.member.view.*
+import java.io.File
 
 class GroupInformationActivity : AppCompatActivity() {
     lateinit var database: DatabaseReference
@@ -45,7 +48,7 @@ class GroupInformationActivity : AppCompatActivity() {
                         for (item in postSnapshot) {
                             userkeyingrouplist.add(item.key.toString())
                             database.child("Users").child(item.key.toString()).child("userName").get().addOnSuccessListener {
-                                adapter.add(memberlistItem(it.value as String))
+                                adapter.add(memberlistItem(it.value as String, item.key as String))
                             }
                         }
                     }
@@ -90,10 +93,27 @@ class GroupInformationActivity : AppCompatActivity() {
     }
 }
 
-class memberlistItem(val name: String) : Item<GroupieViewHolder>() {
+class memberlistItem(val name: String, val userid: String) : Item<GroupieViewHolder>() {
     override fun getLayout() = R.layout.member
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+        //bind 名字
         viewHolder.itemView.username.text = name
+        //bind 圖片
+        val targetImageView = viewHolder.itemView.userpic
+        val firebasestorage = FirebaseStorage.getInstance("gs://project-test-8dbf1.appspot.com").getReference("root")
+        firebasestorage.child("Userimg").child(userid).downloadUrl.addOnSuccessListener { it2 ->
+            if (it2 == null) {
+                firebasestorage.child("Userimg").child("default_user_img.png").downloadUrl.addOnSuccessListener {
+                    Picasso.get().load(it).into(targetImageView)
+                }
+            }
+            else Picasso.get().load(it2).into(targetImageView)
+        }.addOnFailureListener {
+            firebasestorage.child("Userimg").child("default_user_img.png").downloadUrl.addOnSuccessListener {
+                Picasso.get().load(it).into(targetImageView)
+            }
+        }
+
     }
 }

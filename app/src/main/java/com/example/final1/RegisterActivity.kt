@@ -1,7 +1,11 @@
 package com.example.final1
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.final1.Extensions.toast
@@ -11,7 +15,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_register.*
+import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
     lateinit var userEmail: String
@@ -39,6 +45,12 @@ class RegisterActivity : AppCompatActivity() {
             finish()
         }
 
+        select_photo_rgs.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent, 0)
+        }
+
     }
 
     /* check if there's a signed-in user*/
@@ -49,6 +61,32 @@ class RegisterActivity : AppCompatActivity() {
         user?.let {
             startActivity(Intent(this, HomeActivity::class.java))
             toast("welcome back")
+        }
+    }
+
+    var selectedPhotoUri: Uri? = null
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 0 && resultCode == Activity.RESULT_OK && data != null) {
+            selectedPhotoUri = data.data
+
+            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedPhotoUri)
+            select_photo_rgs_imgview.setImageBitmap(bitmap)
+            select_photo_rgs.alpha = 0f
+        }
+
+    }
+
+    private fun uploadImgtoFirebaseStorage() {
+        if (selectedPhotoUri == null) return
+
+        else {
+            val userid = FirebaseAuth.getInstance().uid
+            val firebasestorage = FirebaseStorage.getInstance("gs://project-test-8dbf1.appspot.com").getReference("root")
+
+            firebasestorage.child("Userimg").child(userid!!).putFile(selectedPhotoUri!!)
         }
     }
 
@@ -94,6 +132,8 @@ class RegisterActivity : AppCompatActivity() {
                         if (uid != null) {
                             database.child("Users").child(uid).setValue(User)
                         }
+                        /*upload user img*/
+                        uploadImgtoFirebaseStorage()
                         toast("created account successfully !")
                         sendEmailVerification()
                         startActivity(Intent(this, GroupJoinActivity::class.java))

@@ -90,7 +90,7 @@
 
     <!-- 按鈕：設定(前往activity_setting_and_privacy頁面) -->
     <ImageButton
-        android:id="@+id/setting_btn"
+        android:id="@+id/setting_btn_grp"
         android:layout_width="45dp"
         android:layout_height="45dp"
         app:srcCompat="@drawable/ic_settings"
