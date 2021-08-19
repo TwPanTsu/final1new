@@ -1,6 +1,5 @@
 package com.example.final1.Models
 
-import android.provider.ContactsContract
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.clustering.ClusterItem
 import java.time.LocalDateTime
@@ -12,9 +11,9 @@ class ClusterMarker : ClusterItem {
     private var Lat:Double
     private var Lng:Double
     private var mPosition:LatLng
-    private lateinit var Time:LocalDateTime
+    private lateinit var Time:String
 
-    constructor(lat: Double, lng:Double, titles:String, snippet: String,time: LocalDateTime){
+    constructor(lat: Double, lng:Double, titles:String, snippet: String, time: String){
         mTitle=titles
         mSnippet=snippet
         Lat=lat
@@ -29,11 +28,7 @@ class ClusterMarker : ClusterItem {
         Lng=lng
         mPosition=LatLng(Lat,Lng)
     }
-    constructor(lat: Double, lng:Double){
-        Lat=lat
-        Lng=lng
-        mPosition=LatLng(Lat,Lng)
-    }
+
 
 
     override fun getPosition(): LatLng {
@@ -47,7 +42,7 @@ class ClusterMarker : ClusterItem {
     override fun getSnippet(): String {
         return mSnippet
     }
-    fun getTime():LocalDateTime{
+    fun getTime():String{
         return Time
     }
 }

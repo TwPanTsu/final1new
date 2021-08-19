@@ -37,6 +37,9 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlinx.android.synthetic.main.activity_maps.*
+import java.security.Timestamp
+import java.time.Instant
+import java.time.ZoneId
 
 
 class MapsActivity : FragmentActivity(), OnMapReadyCallback, LocationListener, LocationSource,ClusterManager.OnClusterClickListener<ClusterMarker>,ClusterManager.OnClusterItemClickListener<ClusterMarker> {
@@ -145,16 +148,17 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, LocationListener, L
         add_marker_switch.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 mMap.setOnMapLongClickListener {
-                    mMap.addMarker(MarkerOptions().position(it).title("點點?"))
-                    val markeritem=ClusterMarker(it.latitude,it.longitude,"點點?","內容的啦",LocalDateTime.now())
-                    mClusterManager.addItem(markeritem)
+                    //mMap.addMarker(MarkerOptions().position(it).title("點點?"))
+                    val markeritem=ClusterMarker(it.latitude,it.longitude,"點點?","內容的啦")
+                    val nowtime=LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d H:m"))
+                    //mClusterManager.addItem(markeritem)
                     var markerkey=database.child("Chats").child(current_group).child("Marker").push().key
-                    database.child("Chats").child(current_group).child("Marker").child(markerkey!!).setValue(markeritem)
-                    //database.child("Chats").child(current_group).child("Marker").child(markerkey!!).child("lat").setValue(it.latitude)
-                    //database.child("Chats").child(current_group).child("Marker").child(markerkey!!).child("lng").setValue(it.longitude)
-                    //database.child("Chats").child(current_group).child("Marker").child(markerkey!!).child("title").setValue("點點?")
-                    //database.child("Chats").child(current_group).child("Marker").child(markerkey!!).child("snippet").setValue("點4534點?")
-                    //database.child("Chats").child(current_group).child("Marker").child(markerkey!!).child("time").setValue(LocalDateTime.now())
+                    //database.child("Chats").child(current_group).child("Marker").child(markerkey!!).setValue(markeritem)
+                    database.child("Chats").child(current_group).child("Marker").child(markerkey!!).child("lat").setValue(it.latitude)
+                    database.child("Chats").child(current_group).child("Marker").child(markerkey!!).child("lng").setValue(it.longitude)
+                    database.child("Chats").child(current_group).child("Marker").child(markerkey!!).child("title").setValue("點點?")
+                    database.child("Chats").child(current_group).child("Marker").child(markerkey!!).child("snippet").setValue("點4534點?")
+                    database.child("Chats").child(current_group).child("Marker").child(markerkey!!).child("time").setValue(nowtime)
                 }
             } else {
                 mMap.setOnMapLongClickListener {
@@ -385,16 +389,17 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, LocationListener, L
     }
 
     private fun addItem() {
-        database.child("Chats").child(current_group).child("Marker").get().addOnSuccessListener {
+        database.child("Chats").child(current_group).child("Marker").get().addOnSuccessListener { it ->
             val dataSnapshot=it.children
+            Log.v("test","跑得出來1")
             for(item in dataSnapshot){
                 var markerid=item.key
+                Log.v("test","$markerid")
                 if(markerid!=null){
-                    database.child("Chats").child(current_group).child("Marker").child(markerid).get().addOnSuccessListener { data->
-                        var markerdata=data.getValue<ClusterMarker>()
-                        if(markerdata!=null){
-                            Log.v("test","跑得出來")
-                        }
+                    database.child("Chats").child(current_group).child("Marker").child(markerid).get().addOnSuccessListener{data->
+                        var x=data.getValue<AC>()
+                        val mMarker= x?.let { it1 -> ClusterMarker(it1.lat,x.lng,x.title,x.snippet,x.time) }
+                        mClusterManager.addItem(mMarker)
                     }
                 }
             }
@@ -417,5 +422,9 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, LocationListener, L
 
 data class positionlalo(val la: Double, val lo: Double, val time: String) {
     constructor() : this(-1.0, -1.0, "2021/08/16 00:06:53.268")
+}
+
+data class AC(val lat: Double, val lng: Double, val snippet:String,val time: String,val title:String) {
+    constructor() : this(-1.0, -1.0, "預設內容","2021/08/16 00:06:53.268","預設標題")
 }
 
