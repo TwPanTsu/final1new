@@ -23,6 +23,7 @@ tools:context=".MapsActivity" >
             android:layout_weight="1"
             android:backgroundTint="@color/white"
             android:text="首頁"
+            android:layout_marginLeft="4dp"
             android:textColor="@color/black" />
         <!-- 標題：聊天室 -->
 
@@ -44,6 +45,7 @@ tools:context=".MapsActivity" >
             android:layout_weight="1"
             android:gravity="center"
             android:text=""
+            android:layout_marginRight="4dp"
             android:textColor="@color/black"
             android:textSize="20sp" />
     </LinearLayout>
@@ -61,7 +63,8 @@ tools:context=".MapsActivity" >
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="地圖樣式" />
+            android:text="地圖樣式"
+            android:layout_marginStart="10dp"/>
 
 
         <Spinner
@@ -80,6 +83,7 @@ tools:context=".MapsActivity" >
             android:text="加入標記"
             android:textOff="關"
             android:textOn="開"
+            android:layout_marginEnd="10dp"
             tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
 
 

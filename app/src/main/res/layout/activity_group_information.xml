@@ -22,6 +22,7 @@
             android:backgroundTint="@color/white"
             android:text="首頁"
             android:textColor="@color/black"
+            android:layout_marginLeft="4dp"
             tools:ignore="TouchTargetSizeCheck" />
 
         <!-- 標題：群組資訊、成員 -->
@@ -46,6 +47,7 @@
             android:backgroundTint="@color/white"
             android:padding="0dp"
             android:text="切換群組"
+            android:layout_marginRight="4dp"
             android:textColor="@color/black"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
@@ -69,11 +71,12 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
                 android:text="群組名稱："
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textStyle="bold"
+                android:textSize="17sp" />
 
             <!-- 此處顯示該群組的"名稱" -->
             <TextView
@@ -81,12 +84,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_toRightOf="@id/textView2"
                 android:ems="15"
                 android:text="XXX群組"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="17sp" />
         </LinearLayout>
 
 
@@ -99,22 +102,24 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="13dp"
                 android:text="QR-Code："
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textStyle="bold"
+                android:textSize="17sp" />
 
             <!-- 按鈕：顯示QR-Code -->
             <Button
                 android:id="@+id/gotoQR_btn"
-                android:layout_width="64dp"
+                android:layout_width="50dp"
                 android:layout_height="37dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="13dp"
                 android:layout_toRightOf="@id/textView3"
                 android:backgroundTint="#36BF36"
                 android:text="顯示"
+                android:padding="0dp"
                 tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
@@ -124,11 +129,12 @@
             android:id="@+id/textView_member"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="13dp"
             android:text="群組成員："
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textSize="17sp"
             app:layout_constraintEnd_toEndOf="@+id/textView3"
             app:layout_constraintHorizontal_bias="0.439"
             app:layout_constraintStart_toStartOf="@+id/textView3"
@@ -207,11 +213,11 @@
         android:layout_below="@id/LinearLayout_text"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="18dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="23dp"
         android:layout_marginBottom="0dp"
-        android:background="?android:selectableItemBackground"
+        android:background="#16009688"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/linearLayout_buttons" />
 

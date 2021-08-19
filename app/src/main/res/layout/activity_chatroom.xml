@@ -31,6 +31,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
                 android:text="首頁"
+                android:layout_marginLeft="4dp"
                 android:textColor="@color/black" />
             <!-- 標題：聊天室 -->
 
@@ -52,6 +53,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text=""
+                android:layout_marginRight="4dp"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
         </LinearLayout>
