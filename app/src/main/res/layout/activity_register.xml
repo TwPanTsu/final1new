@@ -13,7 +13,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="45dp"
         android:layout_marginBottom="88dp"
         android:text="註冊"
         android:textColor="@color/black"
@@ -44,7 +44,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/account_id"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.479" />
+        app:layout_constraintVertical_bias="0.456" />
 
     <EditText
         android:id="@+id/account_id"
@@ -55,7 +55,7 @@
         android:layout_marginEnd="40dp"
         android:background="@drawable/rounded_edttext_register"
         android:ems="10"
-        android:hint="帳號"
+        android:hint="帳號 (Email)"
         android:inputType="textEmailAddress"
         android:paddingLeft="16dp"
         android:text="@string/acc"
@@ -131,12 +131,12 @@
         android:id="@+id/button_confirm_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="25dp"
         android:backgroundTint="#FFFFFF"
         android:text="確定"
         android:textColor="#C3000000"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phone_num" />
 
@@ -145,11 +145,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginEnd="88dp"
+        android:layout_marginEnd="98dp"
         android:backgroundTint="#D6D6D6"
         android:text="取消"
         android:textColor="#C1000000"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/button_confirm_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

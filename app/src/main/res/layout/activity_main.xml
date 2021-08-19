@@ -66,7 +66,7 @@
         android:layout_marginEnd="28dp"
         android:backgroundTint="@color/btn_focused"
         android:text="登入"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.328"
@@ -81,7 +81,7 @@
         android:layout_marginStart="44dp"
         android:backgroundTint="@color/bgblue"
         android:text="註冊"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/login_btn"
         app:layout_constraintStart_toEndOf="@+id/login_btn"
         app:layout_constraintTop_toTopOf="@+id/login_btn"
@@ -89,8 +89,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="356dp"
-        android:layout_height="164dp"
+        android:layout_width="294dp"
+        android:layout_height="119dp"
         android:layout_marginBottom="76dp"
         app:layout_constraintBottom_toTopOf="@+id/account_id_login"
         app:layout_constraintEnd_toEndOf="parent"
