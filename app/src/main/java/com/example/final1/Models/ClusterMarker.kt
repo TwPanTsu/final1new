@@ -6,8 +6,8 @@ import java.time.LocalDateTime
 
 class ClusterMarker : ClusterItem {
 
-    private lateinit var mTitle:String
-    private lateinit var mSnippet:String
+    private var mTitle:String
+    private var mSnippet:String
     private var Lat:Double
     private var Lng:Double
     private var mPosition:LatLng

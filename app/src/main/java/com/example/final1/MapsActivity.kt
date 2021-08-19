@@ -151,7 +151,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, LocationListener, L
                     //mMap.addMarker(MarkerOptions().position(it).title("點點?"))
                     val markeritem=ClusterMarker(it.latitude,it.longitude,"點點?","內容的啦")
                     val nowtime=LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d H:m"))
-                    //mClusterManager.addItem(markeritem)
+
                     var markerkey=database.child("Chats").child(current_group).child("Marker").push().key
                     //database.child("Chats").child(current_group).child("Marker").child(markerkey!!).setValue(markeritem)
                     database.child("Chats").child(current_group).child("Marker").child(markerkey!!).child("lat").setValue(it.latitude)
@@ -159,6 +159,8 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, LocationListener, L
                     database.child("Chats").child(current_group).child("Marker").child(markerkey!!).child("title").setValue("點點?")
                     database.child("Chats").child(current_group).child("Marker").child(markerkey!!).child("snippet").setValue("點4534點?")
                     database.child("Chats").child(current_group).child("Marker").child(markerkey!!).child("time").setValue(nowtime)
+                    mClusterManager.addItem(markeritem)
+                    mClusterManager.cluster()
                 }
             } else {
                 mMap.setOnMapLongClickListener {
@@ -166,6 +168,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, LocationListener, L
                 }
             }
         }
+
     }//onMapReady end
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -195,6 +198,10 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, LocationListener, L
             .addOnSuccessListener {
                 current_group = (it.value as String?)!!
                 //如果沒有的話，跳轉到GroupActivity裡加入Group或切換
+
+                //顯示firebase的marker
+                SetupCluster()
+
                 if (current_group == "not_have_yet") {
                     val intent = Intent(this, GroupActivity::class.java)
                     startActivity(intent)
@@ -231,8 +238,6 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, LocationListener, L
                             override fun onDataChange(datasnapshot: DataSnapshot) {
                                 val postSnapshot = datasnapshot.children
                                 mMap.clear()
-                                //顯示firebase的marker
-                                SetupCluster()
                                 for (item in postSnapshot) {
                                     var useruid = item.key
                                     if (useruid != null) {
@@ -391,6 +396,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback, LocationListener, L
     private fun addItem() {
         database.child("Chats").child(current_group).child("Marker").get().addOnSuccessListener { it ->
             val dataSnapshot=it.children
+            mClusterManager.clearItems()
             Log.v("test","跑得出來1")
             for(item in dataSnapshot){
                 var markerid=item.key
