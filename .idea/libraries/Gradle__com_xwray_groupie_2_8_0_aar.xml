@@ -3,8 +3,9 @@
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/061c27f5ffd4f5786e560593dd1d8a86/groupie-2.8.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/155b6fce8e4442135f84079d688636f1/groupie-2.8.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/155b6fce8e4442135f84079d688636f1/groupie-2.8.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/155b6fce8e4442135f84079d688636f1/groupie-2.8.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ef467365c079bb840d27d043d195fdf6/transformed/groupie-2.8.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/ef467365c079bb840d27d043d195fdf6/transformed/groupie-2.8.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ef467365c079bb840d27d043d195fdf6/transformed/groupie-2.8.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.xwray/groupie/2.8.0/2ba8ba593ae454dcad4fe47f8198d79d37d455f/groupie-2.8.0-javadoc.jar!/" />

@@ -1,8 +1,10 @@
 package com.example.final1
 
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.final1.R.layout.member_information_fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
@@ -10,10 +12,8 @@ import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
-import kotlinx.android.synthetic.main.activity_chatroom.*
 import kotlinx.android.synthetic.main.activity_group_information.*
 import kotlinx.android.synthetic.main.member.view.*
-import java.io.File
 
 class GroupInformationActivity : AppCompatActivity() {
     lateinit var database: DatabaseReference
@@ -62,6 +62,18 @@ class GroupInformationActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+        adapter.setOnItemClickListener { item, view ->
+            val positionofitem = adapter.getAdapterPosition(item)
+            if (userid == userkeyingrouplist[positionofitem]) {
+                var dialog = UserInformationDialogFragment.newInstance(userkeyingrouplist[positionofitem])
+                dialog.show(supportFragmentManager, "userinformation")
+            }
+            else {
+                var dialog = MemberInformationDialogFragment.newInstance(userkeyingrouplist[positionofitem])
+                dialog.show(supportFragmentManager, "memberinformation")
+            }
+        }
 
         returnmenu_btn_groupinf.setOnClickListener{
             val intent = Intent(this, HomeActivity::class.java)

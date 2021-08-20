@@ -4,6 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/cdd0bafceea4f247b1f71b1527cf8ca0/transformed/android-maps-utils-2.2.5/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/cdd0bafceea4f247b1f71b1527cf8ca0/transformed/android-maps-utils-2.2.5/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/cdd0bafceea4f247b1f71b1527cf8ca0/transformed/android-maps-utils-2.2.5/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/72da77e2242e65b05297b7745f119179/transformed/android-maps-utils-2.2.5/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/72da77e2242e65b05297b7745f119179/transformed/android-maps-utils-2.2.5/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/72da77e2242e65b05297b7745f119179/transformed/android-maps-utils-2.2.5/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.maps.android/android-maps-utils/2.2.5/7a7ce67f299b3c6695f0811ab2f25d0d63972b71/android-maps-utils-2.2.5-javadoc.jar!/" />

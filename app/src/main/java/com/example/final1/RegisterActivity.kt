@@ -76,7 +76,6 @@ class RegisterActivity : AppCompatActivity() {
             select_photo_rgs_imgview.setImageBitmap(bitmap)
             select_photo_rgs.alpha = 0f
         }
-
     }
 
     private fun uploadImgtoFirebaseStorage() {
