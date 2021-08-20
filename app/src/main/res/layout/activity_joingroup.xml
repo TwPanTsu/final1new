@@ -10,6 +10,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="請輸入群組id"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/send_groupid_btn"
         app:layout_constraintStart_toStartOf="parent" />
@@ -20,6 +22,7 @@
         android:layout_height="45dp"
         android:backgroundTint="@color/back_button"
         android:text="返回"
+        android:layout_marginLeft="4dp"
         android:textColor="@color/back_button_text"
         android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="確認"
+        android:backgroundTint="#36bf36"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

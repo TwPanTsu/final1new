@@ -3,15 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#BDEABE">
 
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-
-
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/layout_input"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +20,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="44dp"
+            android:layout_height="50dp"
             android:orientation="horizontal">
 
             <!-- 按鈕：回到home -->
@@ -30,9 +29,10 @@
                 android:layout_width="45dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#00000000"
-                android:textColor="@color/black"
-                android:text="首頁" />
+                android:backgroundTint="@color/white"
+                android:text="首頁"
+                android:layout_marginLeft="4dp"
+                android:textColor="@color/black" />
             <!-- 標題：聊天室 -->
 
 
@@ -45,6 +45,7 @@
                 android:text="聊天室"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/textofnull"
                 android:layout_width="45dp"
@@ -52,6 +53,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text=""
+                android:layout_marginRight="4dp"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -76,42 +78,49 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         android:id="@+id/layout_input"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="#7C0F0F"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <!-- 輸入框：輸入訊息 -->
-
-        <!-- 按鈕：送出訊息 -->
-
         <EditText
             android:id="@+id/et_message"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="8"
+            android:layout_margin="4dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="#FFFFFF"
             android:hint="輸入內容" />
 
+        <!-- 按鈕：送出訊息 -->
         <Button
             android:id="@+id/send_btn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
+            android:layout_marginRight="4dp"
             android:layout_weight="2"
-            android:backgroundTint="@color/back_button"
+            android:backgroundTint="#36BF36"
             android:text="發送"
-            android:textColor="@color/black" />
+            android:textSize="18dp"
+            android:textColor="@color/white" />
     </LinearLayout>
+
     <!-- 底部按鈕排列 -->
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="54dp"
+        android:background="#E1E1E1"
         android:orientation="horizontal"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -121,48 +130,50 @@
             android:id="@+id/map_btn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="2dp"
             android:layout_weight="1"
             android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:text="地圖" />
+            android:text="地圖"
+            android:textColor="@color/black" />
 
         <!-- 按鈕：聊天室 -->
         <Button
             android:id="@+id/chatroom_btn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
             android:layout_weight="1"
             android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:text="聊天室" />
+            android:text="聊天室"
+            android:textColor="@color/black" />
 
         <!-- 按鈕：群組資訊 -->
         <Button
             android:id="@+id/group_btn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
             android:layout_weight="1"
             android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:text="群組資訊" />
+            android:text="群組資訊"
+            android:textColor="@color/black" />
 
         <!-- 按鈕：行程 -->
         <Button
             android:id="@+id/schedule_btn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="4dp"
             android:layout_weight="1"
             android:backgroundTint="@color/white"
-            android:textColor="@color/black"
-            android:text="行程" />
+            android:text="行程"
+            android:textColor="@color/black" />
 
     </LinearLayout>
-
-
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
